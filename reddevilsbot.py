@@ -42,7 +42,7 @@ class Red_Devils_Bot(object):
 
 		updated = datetime.datetime.now().strftime('%b %d, %Y at %I:%M%p')
 
-		standings = "\n#Results and Fixtures (All Competitions) "
+		standings = "\n#Results and Fixtures"
 		standings += "\n|Comp | Date | |Opponent | Result"
 		standings += "\n|:-----------------------------: | :----: | :-: |  :-: | :-: |"
 
@@ -53,6 +53,7 @@ class Red_Devils_Bot(object):
 				standings += "\n|{0}|{1}|A|{2}|{3}|".format(lst[-1] , lst[0], lst[2], lst[3].replace(u'v', u'-'))
 
 		standings += "\n\n*Last Updated: " + updated +  " | [Full](http://espnfc.com/team/fixtures?id=360&cc=5901)*\n"
+		standings +="#[](#break)"
 
 		return standings
 
@@ -88,6 +89,7 @@ class Red_Devils_Bot(object):
 				standings += "\n|{0}|{1}|{2}|{3}|{4}|".format(lst[0], lst[1], lst[2], lst[3],lst[4])
 
 		standings += "\n\n*Last Updated: " + updated +  " | [Full](http://www.premierleague.com/en-gb/matchday/league-table.html)*\n"
+		standings +="#[](#break)"
 
 		return standings		
 
