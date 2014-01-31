@@ -42,7 +42,7 @@ class Red_Devils_Bot(object):
 
 		updated = datetime.datetime.now().strftime('%b %d, %Y at %I:%M%p')
 
-		standings = "\n###Results and Fixtures (All Competitions) "
+		standings = "\n#Results and Fixtures (All Competitions) "
 		standings += "\n|Comp | Date | |Opponent | Result"
 		standings += "\n|:-----------------------------: | :----: | :-: |  :-: | :-: |"
 
@@ -77,7 +77,7 @@ class Red_Devils_Bot(object):
 		updated = datetime.datetime.now().strftime('%b %d, %Y at %I:%M%p')
 
 		standings = "\n####"
-		standings += "\n###Premier League Standings "
+		standings += "\n#Premier League Standings "
 		standings += "\n|Pos |    Team    | Pld  | GD | Pts|"
 		standings += "\n| :-: | :----------: | :-: | :-: | :-: |"
 
@@ -117,7 +117,7 @@ class Red_Devils_Bot(object):
 
 		updated = datetime.datetime.now().strftime('%b %d, %Y at %I:%M%p')
 
-		standings = "\n###Top scorers (All Competitions) "
+		standings = "\n#Top scorers (All Competitions) "
 		standings += "\n|Player|Goals|Assists|Games|"
 		standings += "\n|:--:|:--:|:--:|:--:|"
 
