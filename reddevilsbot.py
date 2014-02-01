@@ -52,7 +52,7 @@ class Red_Devils_Bot(object):
 			else:
 				standings += "\n|{0}|{1}|A|{2}|{3}|".format(lst[-1] , lst[0], lst[2], lst[3].replace(u'v', u'-'))
 
-		standings += "\n\n*Last Updated: " + updated +  " | [Full](http://espnfc.com/team/fixtures?id=360&cc=5901)*\n"
+		standings += "\n\n*Last Updated: " + updated +  " | [Full](www.manutd.com/en/Fixtures-And-Results/United-Fixtures-And-Results.aspx)*\n"
 		standings +="#[](#break)"
 
 		return standings
@@ -173,4 +173,4 @@ while(True):
 	print 'Reddit is being updated'
 	rdb.update_reddit()
 	print 'Sleeping..\n'
-	time.sleep(1800)
+	time.sleep(900)
