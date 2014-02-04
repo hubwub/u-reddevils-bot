@@ -35,7 +35,7 @@ class Red_Devils_Bot(object):
 		 	flist.append([cell.text for cell in row])
 
 		for lst in flist:
-			if  (lst[0].find("Jan") !=  -1) or (lst[0].find("Feb") !=  -1) :
+			if  (lst[0].find("Feb") !=  -1) :
 				fixtures.append([val.replace(u'\n', u'') .replace(u'\xa0', u'').replace(u'\t', u'').replace(u'Angleterre', u'').replace(u'English FA Cup (Round 3)', u'FA').replace(u'Capital One Cup (Semi-finals)', u'LC').replace(u'UEFA Champions League (Round of 16)', u'CL').replace(u'Premier League','PL') for val in lst])
 
 		w.close()
