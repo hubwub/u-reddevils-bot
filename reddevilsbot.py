@@ -35,7 +35,7 @@ class Red_Devils_Bot(object):
 		 	flist.append([cell.text for cell in row])
 
 		for lst in flist:
-			if  (lst[0].find("Feb") !=  -1) :
+			if  ((lst[0].find("Feb") !=  -1) or (lst[0].find("Mar") !=  -1)):
 				fixtures.append([val.replace(u'\n', u'') .replace(u'\xa0', u'').replace(u'\t', u'').replace(u'Angleterre', u'').replace(u'English FA Cup (Round 3)', u'FA').replace(u'Capital One Cup (Semi-finals)', u'LC').replace(u'UEFA Champions League (Round of 16)', u'CL').replace(u'Premier League','PL') for val in lst])
 
 		w.close()
@@ -153,7 +153,7 @@ class Red_Devils_Bot(object):
 		#Grab the current settings
 		settings = r.get_subreddit(self.subreddit).get_settings()
 		#Update the sidebar
-		print sidebar
+		#print sidebar
 		settings['description'] = sidebar
 		settings = r.get_subreddit(self.subreddit).update_settings(description=settings['description'])
 
@@ -170,7 +170,7 @@ while(True):
 	goals = rdb.scrape_scorers()
 	#print goals
 	sidebar = rdb.create_sidebar()
-	print 'Reddit is being updated'
+	print 'Reddit was updated on' + datetime.datetime.now().strftime('%b %d, %Y at %I:%M%p')
 	rdb.update_reddit()
 	print 'Sleeping..\n'
 	time.sleep(900)
