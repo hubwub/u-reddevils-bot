@@ -34,9 +34,10 @@ class Red_Devils_Bot(object):
 		for row in rawdatafixtures_list:
 		 	flist.append([cell.text for cell in row])
 
+		#lst[0].find("Jan") !=  -1) or
 		for lst in flist:
-			if  ((lst[0].find("Feb") !=  -1) or (lst[0].find("Mar") !=  -1)):
-				fixtures.append([val.replace(u'\n', u'') .replace(u'\xa0', u'').replace(u'\t', u'').replace(u'Angleterre', u'').replace(u'English FA Cup (Round 3)', u'FA').replace(u'Capital One Cup (Semi-finals)', u'LC').replace(u'UEFA Champions League (Round of 16)', u'CL').replace(u'Premier League','PL') for val in lst])
+			if  ((lst[0].find("Apr") !=  -1)):
+				fixtures.append([val.replace(u'\n', u'') .replace(u'\xa0', u'').replace(u'\t', u'').replace(u'Angleterre', u'').replace(u'English FA Cup (Round 3)', u'FA').replace(u'Capital One Cup (Semi-finals)', u'LC').replace(u'UEFA Champions League (Round of 16)', u'CL').replace(u'Premier League','PL').replace(u'UEFA Champions League (Quarter-finals)', u'CL') for val in lst])
 
 		w.close()
 
@@ -52,7 +53,7 @@ class Red_Devils_Bot(object):
 			else:
 				standings += "\n|{0}|{1}|A|{2}|{3}|".format(lst[-1] , lst[0], lst[2], lst[3].replace(u'v', u'-'))
 
-		standings += "\n\n*Last Updated: " + updated +  " | [Full](http://www.manutd.com/en/Fixtures-And-Results/United-Fixtures-And-Results.aspx)*\n"
+		standings += "\n\n*Last Updated: " + updated +  " | [Full](http://www.manutd.com/en/Fixtures-And-Results/United-Fixtures-And-Results.aspx?pageNo=4)*\n"
 		standings +="#[](#break)"
 
 		return standings
@@ -170,7 +171,7 @@ while(True):
 	goals = rdb.scrape_scorers()
 	#print goals
 	sidebar = rdb.create_sidebar()
-	print 'Reddit was updated on' + datetime.datetime.now().strftime('%b %d, %Y at %I:%M%p')
+	print "Reddit was updated on " + datetime.datetime.now().strftime('%b %d, %Y at %I:%M%p')
 	rdb.update_reddit()
 	print 'Sleeping..\n'
 	time.sleep(900)
