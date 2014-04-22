@@ -37,8 +37,8 @@ class Red_Devils_Bot(object):
 
 		#lst[0].find("Jan") !=  -1) or
 		for lst in flist:
-			if  (((lst[0].find("Apr") or lst[0].find("May")) !=  -1)):
-				fixtures.append([val.replace(u'\n', u'') .replace(u'\xa0', u'').replace(u'\t', u'').replace(u'Angleterre', u'').replace(u'English FA Cup (Round 3)', u'FA').replace(u'Capital One Cup (Semi-finals)', u'LC').replace(u'UEFA Champions League (Round of 16)', u'CL').replace(u'Premier League','PL').replace(u'UEFA Champions League (Quarter-finals)', u'CL') for val in lst])
+			if  (((lst[0].find("Apr") !=  -1) or (lst[0].find("May") !=  -1))):
+				fixtures.append([val.replace(u'\n', u'') .replace(u'\xa0', u'').replace(u'\t', u'').replace(u'Angleterre', u'').replace(u'English FA Cup (Round 3)', u'FA').replace(u'Capital One Cup (Semi-finals)', u'LC').replace(u'UEFA Champions League (Round of 16)', u'CL').replace(u'Premier League','PL').replace(u'UEFA Champions League (Quarter-finals)', u'CL').replace(u'UEFA Champions League (Quarterfinals)', u'CL') for val in lst])
 
 		w.close()
 
