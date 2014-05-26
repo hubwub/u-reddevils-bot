@@ -18,8 +18,8 @@ class Red_Devils_Bot(object):
 	def __unicode__(self):
    		return unicode(self.some_field) or u''
 
-	def scrape_fixtures(self):
-		w = urllib2.urlopen('http://espnfc.com/team/fixtures?id=360&cc=5901')
+def scrape_fixtures(self):
+		w = urllib2.urlopen('http://www.espnfc.com/team/fixtures/_/id/360/manchester-united?cc=5901')
 		soup = BeautifulSoup(w.read())
 
 		fixtures= []
@@ -61,6 +61,7 @@ class Red_Devils_Bot(object):
 		w = urllib2.urlopen('http://int.soccerway.com/teams/england/manchester-united-fc/662/')
 		soup = BeautifulSoup(w.read())
 
+		league_dict = { 'Arsenal': '[Arsenal](/r/Gunners)', 'Aston Villa': '[Aston Villa](/r/avfc)', 'Cardiff City': '[Cardiff City](/r/bluebirds)', 'Chelsea': '[Chelsea](/r/chelseafc)', 'Crystal Palace': '[Crystal Palace](/r/crystalpalace)', 'Everton': '[Everton](/r/Everton)', 'Fulham' : '[Fulham](/r/FulhamFC)', 'Hull City':'[Hull City](/r/HullCity)', 'Liverpool':'[Liverpool](/r/LiverpoolFC)', 'Manchester City':'[Manchester City](/r/MCFC)', 'Manchester United':'[Manchester United](/r/reddevils)', 'Newcastle United':'[Newcastle United](/r/nufc)', 'Norwich City':'[Norwich City](/r/NorwichCity)', 'Southampton':'[Southampton](/r/SaintsFC)', 'Stoke City':'[Stoke City](/r/StokeCityFC)', 'Sunderland':'[Sunderland](/r/SAFC)', 'Swansea City':'[Swansea City](/r/swanseacity)', 'Tottenham Hotspur':'[Tottenham Hotspur](/r/coys)', 'West Bromwich Albion':'[West Bromwich Albion](/r/WBAfootball)', 'West Ham United':'[West Ham United](/r/Hammers)' }
 		league = []
 
 		for table in soup.findAll('div', id="page_team_1_block_team_table_10"):
@@ -83,10 +84,11 @@ class Red_Devils_Bot(object):
 		standings += "\n| :-: | :----------: | :-: | :-: | :-: |"
 
 		for lst in league:
+
 			if lst[1] == "Manchester United":
-				standings += "\n|**{0}**|**{1}**|**{2}**|**{3}**|**{4}**|".format(lst[0], lst[1], lst[2], lst[3],lst[4])
+				standings += "\n|**{0}**|**{1}**|**{2}**|**{3}**|**{4}**|".format(lst[0], league_dict["Manchester United"], lst[2], lst[3],lst[4])
 			else:
-				standings += "\n|{0}|{1}|{2}|{3}|{4}|".format(lst[0], lst[1], lst[2], lst[3],lst[4])
+				standings += "\n|{0}|{1}|{2}|{3}|{4}|".format(lst[0], league_dict[lst[1]], lst[2], lst[3],lst[4])
 
 		standings += "\n\n*Last Updated: " + updated +  " | [Full](http://www.premierleague.com/en-gb/matchday/league-table.html)*\n"
 		# standings +="#[](#break)"
